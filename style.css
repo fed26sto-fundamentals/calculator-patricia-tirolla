@@ -1,0 +1,25 @@
+#calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 450px;
+    padding: 10px 20px;
+    border: 3px rgb(226, 113, 43) solid;
+}
+button {
+    padding: 20px;
+    width: 100px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    flex-wrap: wrap;
+}
