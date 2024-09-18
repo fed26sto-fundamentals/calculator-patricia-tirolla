@@ -20,3 +20,12 @@ function operate(oper, first, second) {
     }
 }
 operate(firstNumber, secondNumber);
+
+// display the numbers
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let display = alert(button.id);
+    })
+}
+)
