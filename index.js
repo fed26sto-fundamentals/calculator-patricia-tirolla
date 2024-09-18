@@ -1,9 +1,9 @@
 // get values
-let operator = prompt("Type an operator");
 let firstNumber = parseInt(prompt("Type a number"));
+let operator = prompt("Type an operator");
 let secondNumber = parseInt(prompt("Type another number"));
 
-
+// operate function
 function operate(oper, first, second) {
     if (operator === "+") {
         let add = firstNumber + secondNumber;
