@@ -41,20 +41,20 @@ function reset() {
 
 // operate function
 function operate(operator, firstNumber, secondNumber) {
-    if (operator === "+") {
-        let add = firstNumber + secondNumber;
-        return add;
-    } else if (operator === "-") {
-        let substract = firstNumber - secondNumber;
-        return substract;
-    } else if (operator === "*") {
-        let multiply = firstNumber * secondNumber;
-        return multiply;
-    } else {
-        let divide = firstNumber / secondNumber;
-        return divide;
+    switch (operator) {
+        case "+":
+            return firstNumber + secondNumber;
+        case "-":
+            return firstNumber - secondNumber;
+        case "*":
+            return firstNumber * secondNumber;
+        case "/":
+            return secondNumber !== 0 ? firstNumber / secondNumber : "Error: Division by zero";
+        default:
+            return "Error: Unknown operator";
     }
 }
+
 
 //display the numbers
 const buttons = document.querySelectorAll("button");
