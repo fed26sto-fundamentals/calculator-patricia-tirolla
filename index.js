@@ -3,36 +3,40 @@ let n1 = 0
 let op = "+"
 let n2 = ""
 
-// conditional buttons function 
+// Press calculator buttons function 
 function pressCalculatorButton(input) {
-    if (input === "0" 
-        || input === "1" 
-        || input === "2" 
-        || input === "3"
-        || input === "4"
-        || input === "5"
-        || input === "6"
-        || input === "7"
-        || input === "8"
-        || input === "9") {
-        n2 = n2 + input;
-    } else if (input === "+"
-        || input === "-"
-        || input === "*"
-        || input === "/"
-    ) {
+    // Check if the input is a number
+    if (isDigit(input)) {
+        n2 += input;
+    } else if (isOperator(input)) {
+        // Perform operation, then set operator for the next operation
         n1 = operate(op, Number(n1), Number(n2));
-        n2 = ""
+        n2 = "";
         op = input;
     } else if (input === "=") {
         n2 = operate(op, Number(n1), Number(n2));
         n1 = 0;
         op = "+";
     } else if (input === "c") {
-        n1 = 0;
-        op = "+";
-        n2 = "";
+        reset();
     }
+}
+
+// Checks if input is a digit using regex
+function isDigit(input) {
+    return /\d/.test(input); 
+}
+
+// Checks if input is a valid operator
+function isOperator(input) {
+    return ["+", "-", "*", "/"].includes(input); 
+}
+
+// Reset function
+function reset() {
+    n1 = 0;
+    op = "+";
+    n2 = "";
 }
 
 // operate function
@@ -61,7 +65,7 @@ buttons.forEach((button) => {
         if (button.classList.contains("operator")) {
             display.textContent = n1;
         } else {
-        display.textContent = Number(n2);
+            display.textContent = Number(n2);
         }
     })
 }
